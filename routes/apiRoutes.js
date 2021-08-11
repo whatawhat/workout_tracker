@@ -15,9 +15,25 @@ const db = require("../models");
             res.json(err);
         });
     });
+
+    //get workout range
+    // router.get('/api/workouts/range', ({}, res) => {
+    //     db.Workout.find({})
+    //     .then((dbWorkout) => {
+    //         res.json(dbWorkout);
+    //     })
+    //     .catch(err => {
+    //         res.json(err);
+    //     });
+    // });
+
     //get workout range
     router.get('/api/workouts/range', ({}, res) => {
-        db.Workout.find({})
+        db.Workout.aggregate([{
+            $addFields: {
+                totalDuration: { $sum: "$exercises.duration"}
+            }
+        }])
         .then((dbWorkout) => {
             res.json(dbWorkout);
         })
@@ -25,6 +41,8 @@ const db = require("../models");
             res.json(err);
         });
     });
+
+
 
     //add new workouts
     router.post('/api/workouts/', (req, res) => {
@@ -51,6 +69,7 @@ const db = require("../models");
     //     });
     // });
 
+    //update workout
     router.put("/api/workouts/:id", ({body, params}, res) => {
         db.Workout.findByIdAndUpdate(params.id, {$push: {exercises: body} })
         .then((dbWorkout) => {
@@ -60,5 +79,7 @@ const db = require("../models");
             res.json(err);
         });
     });
+
+
 
     module.exports = router;
