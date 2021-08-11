@@ -1,12 +1,12 @@
 //Import express router
-//const router = require("express").Router();
+const router = require("express").Router();
 
 //Import workout model via models directory
 const db = require("../models");
 
-module.exports = function(app) {
+//module.exports = function(app) {
     //Gets all workouts
-    app.get('/api/workouts', (req, res) => {
+    router.get('/api/workouts', (req, res) => {
         db.Workout.find({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -16,7 +16,7 @@ module.exports = function(app) {
         });
     });
     //get workout range
-    app.get('/api/workouts/range', ({}, res) => {
+    router.get('/api/workouts/range', ({}, res) => {
         db.Workout.find({})
         .then((dbWorkout) => {
             res.json(dbWorkout);
@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
 
     //add new workouts
-    app.post('/api/workouts/', (req, res) => {
+    router.post('/api/workouts/', (req, res) => {
         db.Workout.create(req.body)
         .then((dbWorkout) => {
             res.json(dbWorkout);
@@ -38,11 +38,21 @@ module.exports = function(app) {
     });
 
     //update workout
-    app.put('/api/workouts/:id', (req, res) => {
-        db.Workout.findByIdAndUpdate(
-            {_id: req.params.id},
-            {exercise: req.body}
-        )
+    // router.put('/api/workouts/:id', ( req, res) => {
+    //     db.Workout.findByIdAndUpdate(
+    //         {_id: req.params.id},
+    //         {exercise: req.body}
+    //     )
+    //     .then((dbWorkout) => {
+    //         res.json(dbWorkout);
+    //     })
+    //     .catch(err => {
+    //         res.json(err);
+    //     });
+    // });
+
+    router.put("/api/workouts/:id", ({body, params}, res) => {
+        db.Workout.findByIdAndUpdate(params.id, {$push: {exercises: body} })
         .then((dbWorkout) => {
             res.json(dbWorkout);
         })
@@ -50,4 +60,5 @@ module.exports = function(app) {
             res.json(err);
         });
     });
-};
+
+    module.exports = router;
