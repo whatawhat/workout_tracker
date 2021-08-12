@@ -44,28 +44,31 @@ This application is simple to use. The user can create a new workout or continue
 This is the initial screen that has the information about the last workout.
 ![Mainpage](./images/FitnessTrackHome.png)
 
-Once the user clicks New Workout, the Add Your Exercise page shows up with the option to select Resistance or Cardio.
-![Add Your Exercise](./images/FitnessTrackAddExercise.png)
+Once the user clicks a workout option, this page shows up where the user can pick the type of exercise.
+![Page to Add Your Exercise with a drop down menu for exercise type](./images/FitnessTrackerExerciseMain.png)
 
-This is the screen with the view of a previous search. This image shows the new styling.
-![Weather Dashboard viewing a recent search](./images/FitnessTrackAfterCardio.png)
+Once they click on Exercise Type, the user can select Resistance or Cardio.
+![Add Your Exercise showing exercise types](./images/FitnessTrackAddExercise.png)
+
+The buttons Continue Workout and New Workout are not active until information is added.
+![Add Your Exercise with deactivated buttons](./images/FitnessTrackCardioBlank.png)
+
+The Cardio option allows the user to type the name, distance, and duration. From there, they can click Complete which will take the user back to the main page or Add Exercise where another exercise can be added.
+![Cardio log with input fields](./images/FitnessTrackCardioAdd2.png)
+
+The Resistance option allows the user to type the name, weight, sets, reps, and duration. From there, the user can click Complete which will them them back to the main page or Add Exercise where another exercise can be added.
+![Resistance log with input fields](./images/FitnessTrackResistance.png)
 
 
-![Weather Dashboard viewing a recent search](./images/FitnessTrackAfterAll.png)
+This is the view after two cardio workouts were added. 
+![Fitness tracker summary of two cardio workouts](./images/FitnessTrackAfterCardio.png)
 
-![Weather Dashboard viewing a recent search](./images/FitnessTrackAfterAll2.png)
+This is the view after two cardio and one resistance workouts were added. Here, weights lifted, sets performed and reps performed are added.
+![Fitness tracker summary of all three workouts](./images/FitnessTrackAfterAll.png)
 
-![Weather Dashboard viewing a recent search](./images/FitnessTrackCardioAdd2.png)
+This is the dashboard that shows workout duration and pounds lifted.
+![Fitness Tracker Dashboard showing two charts.](./images/FitnessTrackWorkoutDashboard.png)
 
-![Weather Dashboard viewing a recent search](./images/FitnessTrackCardioAddWholePage.png)
-
-![Weather Dashboard viewing a recent search](./images/FitnessTrackCardioBlank.png)
-
-![Weather Dashboard viewing a recent search](./images/FitnessTrackerExerciseMain.png)
-
-![Weather Dashboard viewing a recent search](./images/FitnessTrackResistance.png)
-
-![Weather Dashboard viewing a recent search](./images/FitnessTrackWorkoutDashboard.png)
 ## Contributors
 - Stephanie Davis
 
